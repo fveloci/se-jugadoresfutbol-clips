@@ -8,6 +8,7 @@ package se.jugadoresfutbol.motor;
 import java.io.StringWriter;
 import jess.JessException;
 import jess.Rete;
+import se.jugadoresfutbol.OperacionArchivo;
 import se.jugadoresfutbol.models.Jugador;
 import se.jugadoresfutbol.models.Persona;
 
@@ -22,9 +23,10 @@ public class MotorController {
     
     private MotorController() {
         try {
-            motor = new Rete();
-            motor.reset();
+            motor = new Rete();            
             motor.batch("rules.clp");
+            motor.reset();   
+            OperacionArchivo.crearArchivo();
         } catch (JessException e) {
             System.out.println(e.toString());
         }
@@ -37,16 +39,26 @@ public class MotorController {
         return instance;
     }
     
-    public void ejecutar() {
+    public String ejecutar(Persona p, Jugador j) {
         try {
-            motor.batch("facts.clp");
-            //motor.add(p);
-            //motor.add(j);
-            //StringWriter stringWriter = new StringWriter();
-            //motor.addOutputRouter("t", stringWriter);
-            motor.reset();
+            motor.add(p);
+            motor.add(j);
+            StringWriter stringWriter = new StringWriter();       
+            motor.addOutputRouter("t", stringWriter);            
             motor.run();            
+            return stringWriter.toString().trim();
         } catch (JessException e) {
+            System.out.println(e.toString());
+            return "";
+        }
+    }
+    
+    public void clearAndReset() {
+        try {
+            motor.clear();
+            motor.batch("rules.clp");
+            motor.reset();
+        } catch (Exception e) {
             System.out.println(e.toString());
         }
     }

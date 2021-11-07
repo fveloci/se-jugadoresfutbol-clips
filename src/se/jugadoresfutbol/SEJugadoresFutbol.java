@@ -19,14 +19,14 @@ public class SEJugadoresFutbol {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        /*Persona pruebaLautaro = new Persona("Lautaro Martinez", "Sudamerica", 170);
-        Jugador jugadorLautaro = new Jugador("Lautaro Martinez", "Delantero", "Tecnico");
-        Persona pruebaHaaland = new Persona("Erling Haaland", "Europa", 192);
-        Jugador jugadorHaaland = new Jugador("Erling Haaland", "Delantero", "Veloz");        
+        /*Persona pruebaLautaro = new Persona("Sudamerica", 170);
+        Jugador jugadorLautaro = new Jugador("Delantero", "Tecnico");
+        Persona pruebaHaaland = new Persona("Europa", 192);
+        Jugador jugadorHaaland = new Jugador("Delantero", "Veloz");        
         //motor.ejecutar(pruebaLautaro,jugadorLautaro); 
-        //motor.ejecutar(pruebaHaaland,jugadorHaaland);*/
+        //motor.ejecutar(pruebaHaaland,jugadorHaaland);
         MotorController motor = MotorController.getInstance();
-        motor.ejecutar();
+        motor.ejecutar(pruebaLautaro, jugadorLautaro);*/
     }
     
 }

@@ -14,12 +14,10 @@ public class Persona {
     private String region;
     private int altura;
 
-    public Persona(String nombre, String region, int altura) {
-        this.nombre = nombre;
+    public Persona(String region, int altura) {
         this.region = region;
         this.altura = altura;
-    }
-    
+    }   
     
 
     public String getNombre() {

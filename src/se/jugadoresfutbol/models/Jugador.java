@@ -14,8 +14,7 @@ public class Jugador {
     private String posicion;
     private String estiloJuego;
 
-    public Jugador(String nomPe, String posicion, String estiloJuego) {
-        this.nomPe = nomPe;
+    public Jugador(String posicion, String estiloJuego) {        
         this.posicion = posicion;
         this.estiloJuego = estiloJuego;
     }
