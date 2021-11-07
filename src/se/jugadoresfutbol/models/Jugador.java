@@ -10,9 +10,16 @@ package se.jugadoresfutbol.models;
  * @author VELOCI
  */
 public class Jugador {
-    private Persona persona;
+    private String nomPe;
     private String posicion;
     private String estiloJuego;
+
+    public Jugador(String nomPe, String posicion, String estiloJuego) {
+        this.nomPe = nomPe;
+        this.posicion = posicion;
+        this.estiloJuego = estiloJuego;
+    }
+        
 
     public String getPosicion() {
         return posicion;

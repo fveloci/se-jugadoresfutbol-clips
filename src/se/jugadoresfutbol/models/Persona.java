@@ -14,6 +14,14 @@ public class Persona {
     private String region;
     private int altura;
 
+    public Persona(String nombre, String region, int altura) {
+        this.nombre = nombre;
+        this.region = region;
+        this.altura = altura;
+    }
+    
+    
+
     public String getNombre() {
         return nombre;
     }

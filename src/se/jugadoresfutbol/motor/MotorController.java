@@ -5,6 +5,7 @@
  */
 package se.jugadoresfutbol.motor;
 
+import java.io.StringWriter;
 import jess.JessException;
 import jess.Rete;
 import se.jugadoresfutbol.models.Jugador;
@@ -23,7 +24,7 @@ public class MotorController {
         try {
             motor = new Rete();
             motor.reset();
-            motor.batch("facts.clp");
+            motor.batch("rules.clp");
         } catch (JessException e) {
             System.out.println(e.toString());
         }
@@ -36,11 +37,15 @@ public class MotorController {
         return instance;
     }
     
-    public void ejecutar(Persona p, Jugador j) {
+    public void ejecutar() {
         try {
-            motor.add(p);
-            motor.add(j);
-            motor.run();
+            motor.batch("facts.clp");
+            //motor.add(p);
+            //motor.add(j);
+            //StringWriter stringWriter = new StringWriter();
+            //motor.addOutputRouter("t", stringWriter);
+            motor.reset();
+            motor.run();            
         } catch (JessException e) {
             System.out.println(e.toString());
         }
